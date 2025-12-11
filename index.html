@@ -1,264 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DuoSpeak English</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        color: white;
-        scroll-behavior: smooth;
-        background: black;
-    }
 
-    /* HEADER SECTION */
-    header {
-        position: relative;
-        height: 55vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-        overflow: hidden;
-        background: url('header-bg.jpg') center/cover no-repeat;
-        animation: floatBackground 18s ease-in-out infinite alternate;
-    }
+/* GLOBAL STYLES */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: black;
+    color: gold;
+    overflow-x: hidden;
+}
 
-    /* dark overlay */
-    header::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.45);
-        backdrop-filter: blur(2px);
-    }
+/* HEADER (USA + BRAZIL FLAG BACKGROUND) */
+header {
+    background: url('header-bg.jpg') center/cover no-repeat;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
 
-    header * {
-        position: relative;
-        z-index: 2;
-    }
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
 
-    header img {
-        width: 180px;
-        margin-bottom: 10px;
-        animation: fadeIn 1.6s ease;
-    }
+header * {
+    position: relative;
+    z-index: 2;
+}
 
-    header h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: white;
-        text-shadow: 2px 2px 6px black;
-        animation: fadeInUp 1.8s ease;
-    }
+header img {
+    width: 180px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px gold);
+}
 
-    /* CALL TO ACTION BUTTON */
-    .cta-button {
-        display: inline-block;
-        margin-top: 25px;
-        padding: 15px 25px;
-        background: #25D366;
-        color: white;
-        font-size: 1.2rem;
-        font-weight: bold;
-        border-radius: 40px;
-        text-decoration: none;
-        transition: 0.3s;
-        box-shadow: 0px 0px 15px rgba(0,0,0,0.6);
-        animation: fadeInUp 2s ease;
-    }
+header h1 {
+    color: gold;
+    font-size: 2.6rem;
+    text-shadow: 0 0 15px rgba(255,215,0,0.7);
+}
 
-    .cta-button:hover {
-        transform: scale(1.07);
-        background: #1ebe5d;
-    }
+/* CTA BUTTON */
+.cta-button {
+    display: inline-block;
+    background: gold;
+    color: black;
+    padding: 15px 28px;
+    margin-top: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px rgba(255,215,0,0.65);
+    transition: 0.3s;
+}
 
-    /* MAIN CONTENT */
-    main {
-        background: black;
-        color: gold;
-        padding: 40px 20px;
-        animation: fadeIn 1.5s ease;
-    }
+.cta-button:hover {
+    background: white;
+    color: black;
+}
 
-    /* MEET THE TEACHER */
-    .teacher-section {
-        max-width: 900px;
-        margin: auto;
-        padding: 30px;
-        background: rgba(255, 215, 0, 0.06);
-        border-radius: 12px;
-        border: 1px solid rgba(255,215,0,0.2);
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-        animation: fadeInUp 1.6s ease;
-    }
+/* MAIN CONTENT WRAPPER */
+main {
+    padding: 30px;
+}
 
-    .teacher-section h2 {
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 10px;
-    }
+/* ABOUT THE CLASSES SECTION */
+.about-classes {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 60px 30px;
+    margin: 60px auto;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+    text-align: center;
+}
 
-    .badge {
-        display: block;
-        width: fit-content;
-        margin: 0 auto 15px;
-        background: gold;
-        color: black;
-        padding: 6px 16px;
-        border-radius: 20px;
-        font-weight: bold;
-        font-size: 0.9rem;
-        box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
-        animation: fadeIn 2s ease;
-    }
+.about-classes h2 {
+    color: gold;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
 
-    /* PRICING */
-    .plans {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        max-width: 900px;
-        margin: 60px auto;
-    }
+.about-classes p {
+    color: gold;
+    font-size: 1.25rem;
+    line-height: 1.85;
+    max-width: 780px;
+    margin: 0 auto;
+}
 
-    .plan-card {
-        background: rgba(255, 215, 0, 0.06);
-        padding: 25px;
-        border-radius: 12px;
-        border: 1px solid rgba(255,215,0,0.2);
-        box-shadow: 0 0 15px rgba(255,215,0,0.15);
-        transition: transform 0.4s, box-shadow 0.4s;
-        animation: fadeInUp 1.4s ease;
-    }
+/* MEET THE TEACHER SECTION */
+.teacher-section {
+    text-align: center;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 15px;
+    background: rgba(20,20,20,0.9);
+    box-shadow: 0 0 25px rgba(255,215,0,0.1);
+}
 
-    .plan-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 0 25px rgba(255, 215, 0, 0.35);
-    }
+.teacher-section h2 {
+    font-size: 2.2rem;
+    color: gold;
+}
 
-    .plan-title {
-        font-size: 1.8rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
+.teacher-section p {
+    font-size: 1.2rem;
+    line-height: 1.85;
+}
 
-    .price {
-        font-size: 1.4rem;
-        margin-bottom: 10px;
-        color: white;
-    }
+/* PRICING SECTION */
+.pricing-section {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 20px;
+    text-align: center;
+}
 
-    .plan-details {
-        line-height: 1.6;
-        font-size: 1.1rem;
-    }
+.pricing-section h2 {
+    font-size: 2.3rem;
+    color: gold;
+    margin-bottom: 30px;
+}
 
-    /* TESTIMONIAL SLIDER */
-    .testimonial-slider {
-        text-align: center;
-        margin: 80px auto;
-        max-width: 850px;
-        padding: 20px;
-        animation: fadeInUp 1.6s ease;
-    }
+.plan-box {
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid gold;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 750px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255,215,0,0.1);
+}
 
-    .testimonials-title {
-        font-size: 2rem;
-        color: gold;
-        margin-bottom: 40px;
-        text-shadow: 0 0 12px rgba(255,215,0,0.3);
-    }
+.plan-box h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
 
-    .slider-wrapper {
-        position: relative;
-        overflow: hidden;
-        height: 330px;
-    }
+.plan-box p {
+    font-size: 1.2rem;
+}
 
-    .slide {
-        position: absolute;
-        opacity: 0;
-        transition: opacity 1s ease;
-        width: 100%;
-        left: 0;
-        top: 0;
-    }
+/* TESTIMONIAL SLIDER */
+.testimonial-slider {
+    text-align: center;
+    margin: 80px auto;
+    max-width: 850px;
+    padding: 20px;
+    animation: fadeInUp 1.6s ease;
+}
 
-    .slide.active {
-        opacity: 1;
-    }
+.testimonials-title {
+    font-size: 2rem;
+    color: gold;
+    margin-bottom: 40px;
+    text-shadow: 0 0 12px rgba(255,215,0,0.3);
+}
 
-    .slide img {
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-        background: white;
-        padding: 5px;
-        margin-bottom: 15px;
-        box-shadow: 0 0 15px rgba(255,215,0,0.4);
-    }
+.slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 330px;
+}
 
-    .slide h3 {
-        color: white;
-        margin-bottom: 10px;
-        font-size: 1.3rem;
-    }
+.slide {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
 
-    .slide p {
-        color: gold;
-        font-size: 1.1rem;
-        max-width: 600px;
-        margin: 0 auto;
-    }
+.slide.active {
+    opacity: 1;
+}
 
-    .slider-dots {
-        margin-top: 20px;
-    }
+.slide img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(255,215,0,0.4);
+}
 
-    .dot {
-        height: 12px;
-        width: 12px;
-        display: inline-block;
-        background: rgba(255,215,0,0.3);
-        border-radius: 50%;
-        margin: 0 5px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+.slide h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
 
-    .dot.active {
-        background: gold;
-        box-shadow: 0 0 10px gold;
-    }
+.slide p {
+    color: gold;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-    /* Animations */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+.slider-dots {
+    margin-top: 20px;
+}
 
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+.dot {
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    background: rgba(255,215,0,0.3);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    @keyframes floatBackground {
-        from { background-position: center 0px; }
-        to { background-position: center -40px; }
-    }
+.dot.active {
+    background: gold;
+    box-shadow: 0 0 10px gold;
+}
+
+/* Smooth Fade-In animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
     <img src="logo.png" alt="DuoSpeak English Logo">
     <h1>DuoSpeak English</h1>
@@ -269,60 +257,57 @@
 
 <main>
 
-<!-- MEET THE TEACHER -->
-<section class="teacher-section">
-    <h2>Meet the Teacher</h2>
-    <span class="badge">TEFL Certified</span>
-
+<!-- ABOUT THE CLASSES -->
+<section class="about-classes fade-in">
+    <h2>About Our Classes</h2>
     <p>
-        Hello! My name is <strong>Professor Adam Moorhead Furtado de Siqueira</strong>,
-        the founder and lead instructor of DuoSpeak English. Originally from the United
-        States and now living in Brazil, I am passionate about helping Brazilian learners
-        achieve natural, confident English communication.
-    </p>
-
-    <p>
-        My classes focus on real conversation, pronunciation, vocabulary building, and 
-        confidence, all taught in a relaxed environment designed specifically for 
-        Brazilian Portuguese speakers. With my professional TEFL certification, I combine 
-        methodology with practical conversational coaching to deliver exceptional results.
+        At DuoSpeak English, our conversation classes are designed to completely transform how you feel when 
+        speaking English. Instead of freezing, overthinking, or doubting yourself, you’ll learn to express your 
+        ideas clearly, naturally, and confidently. Every session focuses on real-life communication, pronunciation 
+        training, practical vocabulary, and personalized correction that removes the most common mistakes made by 
+        Brazilian Portuguese speakers.
+        <br><br>
+        These classes will not end with a certificate — they give you something far more valuable: 
+        <strong>true conversational fluency.</strong> You’ll gain the ability to speak comfortably in any situation 
+        and the confidence to pursue new opportunities in your personal and professional life.
+        <br><br>
+        Mastering English opens doors. It creates possibilities. It elevates your future. This is your chance to 
+        invest in yourself, strengthen your voice, and pave your path toward prosperity, growth, and opportunity.
     </p>
 </section>
 
-<!-- PLANS -->
-<div class="plans">
+<!-- MEET THE TEACHER -->
+<section class="teacher-section fade-in">
+    <h2>Meet the Teacher</h2>
+    <p>
+        Professor Adam Moorhead Furtado de Siqueira is a native English speaker from the United States who now 
+        proudly calls Brazil home. With a deep passion for helping Brazilian students speak confidently, he created 
+        DuoSpeak English to bring high-quality conversation training at an accessible price.
+        <br><br>
+        As a certified TEFL instructor, Professor Siqueira combines professional methodology with natural, 
+        real-world communication to help students achieve true fluency with confidence and clarity.
+    </p>
+</section>
 
-    <div class="plan-card">
-        <div class="plan-title">🟢 BASIC Plan</div>
-        <div class="price">R$150/month</div>
-        <div class="plan-details">
-            • 4 classes per month<br>
-            • 1 class per week<br>
-            • Ideal for maintaining fluency
-        </div>
+<!-- PRICING SECTION -->
+<section class="pricing-section fade-in">
+    <h2>Our Plans</h2>
+
+    <div class="plan-box">
+        <h3>🟢 Basic Plan</h3>
+        <p>4 classes/month • 1 class per week • R$150</p>
     </div>
 
-    <div class="plan-card">
-        <div class="plan-title">🟣 STANDARD Plan</div>
-        <div class="price">R$250/month</div>
-        <div class="plan-details">
-            • 8 classes per month<br>
-            • 2 classes per week<br>
-            • Perfect for steady progress
-        </div>
+    <div class="plan-box">
+        <h3>🟣 Standard Plan</h3>
+        <p>8 classes/month • 2 classes per week • R$250</p>
     </div>
 
-    <div class="plan-card">
-        <div class="plan-title">💎 PREMIUM Plan</div>
-        <div class="price">R$700/month</div>
-        <div class="plan-details">
-            • 12–20 classes per month<br>
-            • 3–5 classes per week<br>
-            • Intensive exclusive fluency training
-        </div>
+    <div class="plan-box">
+        <h3>💎 Premium Plan</h3>
+        <p>12–20 classes/month • 3–5 classes/week • Intensive Fluency Training • R$700</p>
     </div>
-
-</div>
+</section>
 
 <!-- TESTIMONIAL SLIDER -->
 <section class="testimonial-slider">
@@ -330,21 +315,21 @@
 
     <div class="slider-wrapper">
         <div class="slide active">
-            <img src="https://api.dicebear.com/8.x/adventurer/svg?seed=Ava" />
+            <img src="https://randomuser.me/api/portraits/women/27.jpg">
             <h3>Ana Ribeiro</h3>
-            <p>“The classes are natural and fun. My confidence improved so fast! Teacher Adam explains everything clearly.”</p>
+            <p>“The classes are natural and fun. My confidence improved so fast! Teacher Adam explains everything in a way that feels simple.”</p>
         </div>
 
         <div class="slide">
-            <img src="https://api.dicebear.com/8.x/adventurer/svg?seed=Lucas" />
+            <img src="https://randomuser.me/api/portraits/men/52.jpg">
             <h3>Lucas Martins</h3>
-            <p>“For the first time, I can speak English at work without fear. DuoSpeak completely changed my fluency!”</p>
+            <p>“For the first time, I can speak English at work without fear. DuoSpeak changed my fluency completely!”</p>
         </div>
 
         <div class="slide">
-            <img src="https://api.dicebear.com/8.x/adventurer/svg?seed=Maria" />
+            <img src="https://randomuser.me/api/portraits/women/44.jpg">
             <h3>Maria Fernanda</h3>
-            <p>“The Premium Plan transformed my vocabulary and pronunciation. Absolutely worth every cent.”</p>
+            <p>“The Premium Plan transformed my vocabulary and pronunciation. Truly worth every cent.”</p>
         </div>
     </div>
 
@@ -357,19 +342,19 @@
 
 </main>
 
-<!-- SLIDER JAVASCRIPT -->
+<!-- TESTIMONIAL JAVASCRIPT -->
 <script>
 let currentIndex = 0;
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
 
 function showSlide(index) {
-    slides.forEach((slide, i) =>
-        slide.classList.toggle("active", i === index)
-    );
-    dots.forEach((dot, i) =>
-        dot.classList.toggle("active", i === index)
-    );
+    slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+    });
+    dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+    });
 }
 
 function nextSlide() {
@@ -391,6 +376,7 @@ dots.forEach((dot, i) => {
 
 </body>
 </html>
+
 
 
 
