@@ -1,471 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DuoSpeak English — Conversation Coaching for Brazilians</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DuoSpeak English</title>
 
-<!-- SEO & Social -->
-<meta name="description" content="DuoSpeak English — Native instructor, TEFL-certified. Personalized conversation coaching for Brazilian learners. Free 30-min trial." />
-<meta name="keywords" content="aulas de conversação inglês, inglês online, native teacher, aula experimental grátis, PIX, DuoSpeak" />
-<meta property="og:title" content="DuoSpeak English — Conversation Lessons" />
-<meta property="og:description" content="Learn real conversational English with a native TEFL-certified teacher in Brazil. Book your free trial." />
-<meta property="og:image" content="https://amoorhead75.github.io/duospeakenglish/logo.png" />
-<meta property="og:url" content="https://amoorhead75.github.io/duospeakenglish/" />
-<meta name="twitter:card" content="summary_large_image" />
+<!-- Open Graph / meta (quick wins) -->
+<meta name="description" content="DuoSpeak English — Conversation sessions for Brazilian learners (intermediate-advanced). Book your FREE 30-min trial.">
+<meta property="og:title" content="DuoSpeak English — Conversation Lessons">
+<meta property="og:description" content="Native instructor, TEFL-certified. Tailored conversation practice for Brazilians.">
+<meta property="og:image" content="https://amoorhead75.github.io/duospeakenglish/logo.png">
+<meta property="og:url" content="https://amoorhead75.github.io/duospeakenglish/">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="favicon.png" />
 
 <style>
-:root{
-  --gold:#ffd700;
-  --bg:#000;
-  --muted:#d9c07a;
-  --card: rgba(255,215,0,0.06);
-  --glass: rgba(255,255,255,0.03);
-  --max-width:1100px;
-}
-*{box-sizing:border-box}
-html,body{height:100%;}
-body{
-  margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background:var(--bg); color:var(--gold); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-}
-.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
 
-/* NAV */
-.topbar{position:fixed;inset:0 0 auto 0;z-index:999;background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.25));backdrop-filter: blur(6px);}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{width:46px;height:46px;border-radius:8px;object-fit:cover}
-.brand h1{font-size:1.05rem;margin:0;color:var(--gold)}
-.nav-links{display:flex;gap:18px;align-items:center}
-.nav-links a{color:var(--gold);text-decoration:none;font-weight:600}
-.cta-ghost{border:1px solid var(--gold);padding:8px 12px;border-radius:10px}
-.cta-primary{background:var(--gold);color:#000;padding:9px 14px;border-radius:10px;font-weight:700;text-decoration:none}
-
-/* Mobile menu */
-.hamburger{display:none;background:transparent;border:0;color:var(--gold);font-size:20px}
-.mobile-menu{display:none;flex-direction:column;background:rgba(0,0,0,0.85);padding:12px;border-top:1px solid rgba(255,215,0,0.06)}
-.mobile-menu a{padding:10px 6px;border-radius:8px}
-
-/* HERO */
-.hero{height:72vh;min-height:520px;display:flex;align-items:center;position:relative;background:url('header-bg.jpg') center/cover no-repeat}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.7));}
-.hero-inner{position:relative;z-index:2;padding:40px 0}
-.hero-grid{display:grid;grid-template-columns:1fr 380px;gap:30px;align-items:center}
-.hero h2{font-size:2.25rem;margin:0 0 8px;color:var(--gold);text-shadow:0 6px 24px rgba(0,0,0,0.6)}
-.hero p{color:var(--muted);font-size:1.05rem;line-height:1.6}
-.hero-ctas{margin-top:18px;display:flex;gap:12px}
-.hero-card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,215,0,0.06)}
-
-/* SECTIONS */
-section{padding:64px 0}
-.section-title{font-size:1.6rem;margin-bottom:18px;color:var(--gold)}
-.card{background:var(--glass);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-
-/* BENEFITS GRID */
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.benefit{padding:20px;border-radius:10px;background:var(--card);text-align:center}
-.benefit h4{margin:12px 0 6px;color:var(--gold)}
-.benefit p{color:var(--muted);font-size:0.95rem}
-
-/* PRICING */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.plan{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,215,0,0.03), rgba(255,215,0,0.01));border:1px solid rgba(255,215,0,0.08)}
-.plan h3{margin:0 0 8px}
-.price{font-weight:800;font-size:1.35rem;color:var(--gold)}
-.best{box-shadow:0 10px 30px rgba(255,215,0,0.08);transform:translateY(-6px)}
-
-/* PRICING COMPARISON */
-.compare{overflow:auto;background:rgba(255,255,255,0.02);padding:14px;border-radius:10px}
-.compare table{width:100%;border-collapse:collapse;color:var(--muted)}
-.compare th, .compare td{padding:10px 8px;text-align:center}
-.compare th{color:var(--gold);font-weight:700}
-
-/* TESTIMONIALS */
-.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.test-card{background:var(--card);padding:18px;border-radius:12px;text-align:left}
-.test-card img{width:56px;height:56px;border-radius:50%;float:left;margin-right:12px}
-.test-card p{color:var(--muted);margin:8px 0 0}
-
-/* FAQ */
-.faq .q{cursor:pointer;padding:12px;border-radius:8px;margin-bottom:8px;background:rgba(255,255,255,0.02)}
-.faq .a{padding:10px 12px;color:var(--muted);display:none}
-
-/* FOOTER */
-footer{padding:28px 0;border-top:1px solid rgba(255,215,0,0.04);margin-top:30px}
-.footer-grid{display:flex;justify-content:space-between;gap:20px;align-items:center}
-.socials a{margin-right:10px;color:var(--gold);text-decoration:none}
-
-/* Floating WhatsApp */
-.whatsapp-float{position:fixed;right:18px;bottom:18px;background:var(--gold);color:#000;padding:14px;border-radius:60px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(0,0,0,0.45);z-index:999}
-.whatsapp-float img{width:22px;height:22px}
-
-/* Responsive */
-@media(max-width:1000px){.hero-grid{grid-template-columns:1fr 320px}}
-@media(max-width:880px){
-  .grid-4{grid-template-columns:repeat(2,1fr)}
-  .test-grid{grid-template-columns:1fr}
-  .pricing-grid{grid-template-columns:1fr}
-  .hero{height:auto;padding:60px 0}
-  .hero-grid{grid-template-columns:1fr}
-}
-@media(max-width:620px){
-  .nav-links{display:none}
-  .hamburger{display:block}
-  .mobile-menu{display:flex}
-  .brand h1{font-size:0.95rem}
-  .grid-4{grid-template-columns:1fr}
+/* GLOBAL STYLES */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: black;
+    color: gold;
+    overflow-x: hidden;
 }
 
-/* small helpers */
-.small{font-size:0.95rem;color:var(--muted)}
-.center{text-align:center}
-.highlight{border-left:4px solid var(--gold);padding-left:12px}
+/* HEADER (USA + BRAZIL FLAG BACKGROUND) */
+header {
+    background: url('header-bg.jpg') center/cover no-repeat;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+header * {
+    position: relative;
+    z-index: 2;
+}
+
+header img {
+    width: 180px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px gold);
+}
+
+header h1 {
+    color: gold;
+    font-size: 2.6rem;
+    text-shadow: 0 0 15px rgba(255,215,0,0.7);
+}
+
+/* CTA BUTTON */
+.cta-button {
+    display: inline-block;
+    background: gold;
+    color: black;
+    padding: 15px 28px;
+    margin-top: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px rgba(255,215,0,0.65);
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: white;
+    color: black;
+}
+
+/* MAIN CONTENT WRAPPER */
+main {
+    padding: 30px;
+}
+
+/* ABOUT THE CLASSES SECTION */
+.about-classes {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 60px 30px;
+    margin: 60px auto;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+    text-align: center;
+}
+
+.about-classes h2 {
+    color: gold;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+.about-classes p {
+    color: gold;
+    font-size: 1.25rem;
+    line-height: 1.85;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+/* MEET THE TEACHER SECTION */
+.teacher-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 15px;
+    background: rgba(20,20,20,0.9);
+    box-shadow: 0 0 25px rgba(255,215,0,0.1);
+    text-align: left;
+}
+
+.teacher-section img {
+    width: 220px;
+    border-radius: 12px;
+    border: 3px solid gold;
+}
+
+.teacher-section h2 {
+    font-size: 2.2rem;
+    color: gold;
+}
+
+.teacher-section p {
+    font-size: 1.2rem;
+    line-height: 1.85;
+}
+
+/* PRICING SECTION */
+.pricing-section {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.pricing-section h2 {
+    font-size: 2.3rem;
+    color: gold;
+    margin-bottom: 30px;
+}
+
+.plan-box {
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid gold;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 750px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255,215,0,0.1);
+}
+
+.plan-box h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.plan-box p {
+    font-size: 1.2rem;
+}
+
+/* PIX PAYMENT SECTION (now copies only your key) */
+.pix-section {
+    background: rgba(0,0,0,0.85);
+    margin: 30px auto 60px;
+    padding: 28px;
+    max-width: 920px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255,215,0,0.12);
+}
+
+.pix-section h2 {
+    color: gold;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.pix-logo {
+    width: 140px;
+    margin: 12px 0 22px;
+}
+
+.pix-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.pix-instructions {
+    max-width: 520px;
+    color: gold;
+    text-align: left;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Plan copy buttons */
+.pix-plans {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pix-plan-btn {
+    background: rgba(255,215,0,0.95);
+    color: black;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: transform .18s ease;
+}
+
+.pix-plan-btn:hover { transform: translateY(-4px); }
+
+/* small debug area */
+#pix-debug {
+    margin-top: 14px;
+    text-align: left;
+    color: #ddd;
+    font-size: 0.92rem;
+    background: rgba(0,0,0,0.55);
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+}
+
+/* TESTIMONIAL SLIDER */
+.testimonial-slider {
+    text-align: center;
+    margin: 80px auto;
+    max-width: 850px;
+    padding: 20px;
+    animation: fadeInUp 1.6s ease;
+}
+
+.testimonials-title {
+    font-size: 2rem;
+    color: gold;
+    margin-bottom: 40px;
+    text-shadow: 0 0 12px rgba(255,215,0,0.3);
+}
+
+.slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 330px;
+}
+
+.slide {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(255,215,0,0.4);
+}
+
+.slide h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.slide p {
+    color: gold;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.slider-dots {
+    margin-top: 20px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    background: rgba(255,215,0,0.3);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: gold;
+    box-shadow: 0 0 10px gold;
+}
+
+/* Smooth Fade-In animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive tweaks */
+@media (max-width: 820px) {
+    .teacher-section { flex-direction: column; text-align: center; }
+    .pix-grid { flex-direction: column; }
+    .pix-instructions { text-align: center; }
+}
 </style>
 </head>
+
 <body>
 
-<!-- TOP NAV -->
-<div class="topbar">
-  <div class="container nav">
-    <div class="brand">
-      <img src="logo.png" alt="DuoSpeak logo" />
-      <h1>DuoSpeak English</h1>
-    </div>
-
-    <nav>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#classes">Classes</a>
-        <a href="#teacher">Teacher</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
-        <a class="cta-primary" href="#book" id="book-cta">Book Free Trial</a>
-      </div>
-      <button class="hamburger" aria-label="Open menu" id="hamburger">☰</button>
-    </nav>
-  </div>
-  <div class="mobile-menu container" id="mobileMenu" style="display:none">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#classes">Classes</a>
-    <a href="#teacher">Teacher</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#contact">Contact</a>
-    <a class="cta-primary" href="#book">Book Free Trial</a>
-  </div>
-</div>
-
-<!-- HERO -->
-<header id="home" class="hero">
-  <div class="container hero-inner">
-    <div class="hero-grid">
-      <div>
-        <h2>Speak English naturally — with a friendly native teacher</h2>
-        <p class="small">Personalized conversation lessons for Brazilian learners (intermediate & advanced). Gain fluency, pronunciation, and confidence — fast. Free 30‑minute trial.</p>
-
-        <div class="hero-ctas">
-          <a class="cta-primary" href="#book">Book Free Trial</a>
-          <a class="cta-ghost" href="#pricing">See Plans & Prices</a>
-        </div>
-
-        <div style="margin-top:16px" class="center small">
-          <button class="cta-ghost" onclick="document.getElementById('classes').scrollIntoView({behavior:'smooth'})">See What You’ll Learn</button>
-        </div>
-      </div>
-
-      <aside class="hero-card">
-        <strong style="display:block">Quick details</strong>
-        <p class="small">1‑on‑1 conversation training • Native TEFL instructor • Flexible schedule • PIX & card payments</p>
-        <hr style="border:none;border-top:1px solid rgba(255,215,0,0.06);margin:10px 0">
-        <div style="display:flex;justify-content:space-between;gap:12px">
-          <div>
-            <div class="small">Trial</div>
-            <div class="price">Free 30 min</div>
-          </div>
-          <div>
-            <div class="small">Response</div>
-            <div class="small">WhatsApp within 24h</div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
+<header>
+    <img src="logo.png" alt="DuoSpeak English Logo">
+    <h1>DuoSpeak English</h1>
+    <a href="https://wa.me/5512997852150" class="cta-button" target="_blank" rel="noopener">
+        📞 Book Your FREE 30-Minute Session Today!
+    </a>
 </header>
 
-<main class="container">
+<main>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="section-title">About DuoSpeak</h2>
-    <div class="card">
-      <p class="small">DuoSpeak English delivers real conversation practice that helps Brazilian learners stop translating in their heads and start speaking confidently. Lessons are tailored to your goals: travel, work, interviews, presentations or daily conversation.</p>
+<!-- ABOUT THE CLASSES -->
+<section class="about-classes fade-in">
+    <h2>About Our Classes</h2>
+    <p>
+        At DuoSpeak English, our conversation classes are designed to completely transform how you feel when 
+        speaking English. Instead of freezing, overthinking, or doubting yourself, you’ll learn to express your 
+        ideas clearly, naturally, and confidently.
+        <br><br>
+        These classes will not end with a certificate — they give you something far more valuable: 
+        <strong>true conversational fluency.</strong> You’ll gain the ability to speak comfortably in any situation 
+        and the confidence to pursue new opportunities in your personal and professional life.
+    </p>
+</section>
+
+<!-- MEET THE TEACHER -->
+<section class="teacher-section fade-in">
+    <img src="teacher.png" alt="Instructor Adam Siqueira">
+    <div>
+        <h2>Meet the Instructor</h2>
+        <p>
+            Instructor Adam Moorhead Furtado de Siqueira is a native English speaker from the United States who now 
+            proudly calls Brazil home. With a deep passion for helping Brazilian students speak confidently, he created 
+            DuoSpeak English to bring high-quality conversation training at an accessible price.
+            <br><br>
+            Adam is a <strong>TEFL-Certified English Teacher</strong> with a professional yet natural teaching style 
+            that helps students achieve real fluency with clarity and confidence.
+        </p>
     </div>
-  </section>
+</section>
 
-  <!-- WHAT YOU'LL LEARN / BENEFITS -->
-  <section id="classes">
-    <h2 class="section-title">What you’ll learn</h2>
-    <div class="grid-4">
-      <div class="benefit">
-        <div>🗣️</div>
-        <h4>Speak with confidence</h4>
-        <p>Practice real conversations and reduce hesitation.</p>
-      </div>
-      <div class="benefit">
-        <div>🔊</div>
-        <h4>Improve pronunciation</h4>
-        <p>Target sounds and rhythm to sound more natural.</p>
-      </div>
-      <div class="benefit">
-        <div>📚</div>
-        <h4>Learn useful vocabulary</h4>
-        <p>Words and expressions for real-life situations.</p>
-      </div>
-      <div class="benefit">
-        <div>🎯</div>
-        <h4>Practical confidence</h4>
-        <p>Fluency techniques focused on communication.</p>
-      </div>
-    </div>
-  </section>
+<!-- PRICING SECTION -->
+<section class="pricing-section fade-in">
+    <h2>Our Plans</h2>
 
-  <!-- TEACHER -->
-  <section id="teacher">
-    <h2 class="section-title">Meet the Teacher</h2>
-    <div class="card" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
-      <img src="teacher.png" alt="Instructor Adam Siqueira" style="width:160px;border-radius:12px;border:3px solid var(--gold);object-fit:cover" />
-      <div>
-        <h3 style="margin:0">Adam Moorhead Furtado de Siqueira</h3>
-        <p class="small">Native English speaker, TEFL-certified, living in Brazil. Adam focuses on helping Brazilian learners speak clearly and confidently with practical, friendly coaching.</p>
-        <p class="small">Specialties: conversation, pronunciation, interview prep, business English.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing">
-    <h2 class="section-title">Plans & Pricing</h2>
-
-    <div class="pricing-grid">
-      <div class="plan">
-        <h3>Basic</h3>
-        <div class="price">R$150 / month</div>
-        <p class="small">4 classes / month • 1x week • Best for steady practice</p>
-        <div style="margin-top:12px"><button class="cta-ghost" onclick="copyPixCode('basic')">Pay with PIX</button></div>
-      </div>
-
-      <div class="plan best">
-        <h3>Standard</h3>
-        <div class="price">R$250 / month</div>
-        <p class="small">8 classes / month • 2x week • Most popular</p>
-        <div style="margin-top:12px"><button class="cta-ghost" onclick="copyPixCode('standard')">Pay with PIX</button></div>
-      </div>
-
-      <div class="plan">
-        <h3>Premium</h3>
-        <div class="price">R$700 / month</div>
-        <p class="small">12–20 classes / month • Intensive • Fast progress</p>
-        <div style="margin-top:12px"><button class="cta-ghost" onclick="copyPixCode('premium')">Pay with PIX</button></div>
-      </div>
+    <div class="plan-box">
+        <h3>🟢 Basic Plan</h3>
+        <p>4 classes/month • 1 class per week • R$150</p>
     </div>
 
-    <div style="margin-top:20px" class="compare">
-      <strong class="small">Side-by-side</strong>
-      <table>
-        <thead>
-          <tr><th>Feature</th><th>Basic</th><th>Standard</th><th>Premium</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Classes / month</td><td>4</td><td>8</td><td>12–20</td></tr>
-          <tr><td>Personalized feedback</td><td>✔️</td><td>✔️</td><td>✔️</td></tr>
-          <tr><td>Materials</td><td>Optional</td><td>Included</td><td>Included + extras</td></tr>
-          <tr><td>Best for</td><td>Beginners/Busy</td><td>Most learners</td><td>Intensive study</td></tr>
-        </tbody>
-      </table>
+    <div class="plan-box">
+        <h3>🟣 Standard Plan</h3>
+        <p>8 classes/month • 2 classes per week • R$250</p>
     </div>
-  </section>
 
-  <!-- BOOK / CALENDAR -->
-  <section id="book">
-    <h2 class="section-title">Book your Free 30-min Trial</h2>
-    <div class="card center">
-      <p class="small">Click below to schedule a free trial. We use Calendly for quick scheduling (or you can message on WhatsApp).</p>
-      <!-- Calendly embed placeholder (replace with your Calendly URL) -->
-      <div id="calendlyEmbed" style="margin-top:12px">
-        <a class="cta-primary" href="https://calendly.com/YOUR-CALENDLY" target="_blank" rel="noopener">Schedule via Calendly</a>
-      </div>
+    <div class="plan-box">
+        <h3>💎 Premium Plan</h3>
+        <p>12–20 classes/month • 3–5 classes/week • Intensive Fluency Training • R$700</p>
     </div>
-  </section>
+</section>
 
-  <!-- LEVEL CHECK -->
-  <section id="level">
-    <h2 class="section-title">Free Level Check</h2>
-    <div class="card small">
-      <p>Take a short 7-question quiz to discover your English level and get a recommended plan. <a href="https://forms.gle/YOUR-GOOGLE-FORM" style="color:var(--gold)">Start the level check</a>.</p>
-    </div>
-  </section>
+<!-- PIX PAYMENT SECTION (buttons copy only your random key) -->
+<section class="pix-section fade-in" aria-label="PIX Payment">
+    <h2>Pay With PIX</h2>
+    <img src="pix-logo.png" alt="PIX Logo" class="pix-logo">
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <h2 class="section-title">What Our Students Say</h2>
-    <div class="test-grid">
-      <div class="test-card">
-        <img src="https://randomuser.me/api/portraits/women/48.jpg" alt="Ana" />
-        <h4>Ana Ribeiro</h4>
-        <p class="small">“The classes are natural and fun. My confidence improved so fast! Adam explains everything in a way that feels simple.”</p>
-      </div>
-      <div class="test-card">
-        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Lucas" />
-        <h4>Lucas Martins</h4>
-        <p class="small">“For the first time, I can speak English at work without fear. DuoSpeak changed my fluency completely!”</p>
-      </div>
-      <div class="test-card">
-        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Maria" />
-        <h4>Maria Fernanda</h4>
-        <p class="small">“The Premium Plan transformed my vocabulary and pronunciation. Truly worth every cent.”</p>
-      </div>
-    </div>
-  </section>
+    <p class="pix-small" style="text-align:center; margin-bottom:18px;">
+        Choose your plan below. Click the button to copy the PIX key. Open your bank app and use the PIX flow you prefer. After paying, send the receipt via WhatsApp to confirm your spot.
+    </p>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="faq">
-      <div class="q">Do I need to be fluent already?</div>
-      <div class="a">No — classes are best for intermediate and above, but we can adapt to confident beginners. The free trial helps us evaluate your level.</div>
+    <div class="pix-grid" role="region" aria-label="PIX payment instructions and plan buttons">
+        <div class="pix-instructions" aria-hidden="false">
+            <p style="margin-top:0;"><strong style="color:gold;">How to pay with PIX (copy & paste):</strong></p>
+            <ol style="color:gold; line-height:1.8;">
+                <li>Tap the button for the plan you want to buy — the PIX key will be copied to your clipboard.</li>
+                <li>Open your bank app, add a PIX payment using the key (or paste where your bank requires it).</li>
+                <li>Confirm the details (amount and receiver), complete the payment, then send a screenshot/receipt to WhatsApp: <a href="https://wa.me/5512997852150" style="color:gold; text-decoration:underline;">+55 12 99785-2150</a>.</li>
+            </ol>
 
-      <div class="q">How do I pay?</div>
-      <div class="a">We accept PIX (instant) and card payments. Use the PIX buttons in each plan or contact via WhatsApp.</div>
+            <div style="margin-top:16px;" class="pix-plans" role="group" aria-label="PIX plan buttons">
+                <button class="pix-plan-btn" onclick="copyPixCode('basic')">🟢 Basic — R$150</button>
+                <button class="pix-plan-btn" onclick="copyPixCode('standard')">🟣 Standard — R$250</button>
+                <button class="pix-plan-btn" onclick="copyPixCode('premium')">💎 Premium — R$700</button>
+            </div>
 
-      <div class="q">Do you give homework?</div>
-      <div class="a">Short optional exercises and tailored feedback are included depending on your plan.</div>
+            <p class="pix-small" style="margin-top:14px;">
+                Tip: If your bank shows the recipient name before confirming, you should see: <strong>Adam Moorhead Furtado de Siqueira</strong> (Nubank).
+            </p>
 
-      <div class="q">Can I reschedule?</div>
-      <div class="a">Yes — rescheduling is handled via Calendly or WhatsApp, with at least 12 hours' notice recommended.</div>
-    </div>
-  </section>
+            <p style="margin-top:12px;">
+                <button style="background:transparent;border:1px solid gold;color:gold;padding:6px 10px;border-radius:8px;cursor:pointer;"
+                    onclick="document.getElementById('pix-debug').style.display = (document.getElementById('pix-debug').style.display === 'block' ? 'none' : 'block')">
+                    Toggle generated PIX key (debug)
+                </button>
+            </p>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2 class="section-title">Contact & Payment</h2>
-    <div class="card" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-      <div style="flex:1">
-        <p class="small">WhatsApp: <a href="https://wa.me/5512997852150" style="color:var(--gold)">+55 12 99785-2150</a></p>
-        <p class="small">Email: <a href="mailto:adam@duospeak.com" style="color:var(--gold)">adam@duospeak.com</a></p>
-      </div>
+            <div id="pix-debug" aria-hidden="true">
+                <strong>Copied PIX keys (debug):</strong>
+                <pre id="pix-debug-pre" style="white-space:pre-wrap;word-break:break-all;margin-top:8px;"></pre>
+                <small>These are the exact keys copied to clipboard — keep them private.</small>
+            </div>
 
-      <div style="min-width:260px">
-        <h4 style="margin:0">Pay with PIX</h4>
-        <p class="small">Click a plan button to copy the PIX key, then paste it into your bank app.</p>
-        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
-          <button class="cta-ghost" onclick="copyPixCode('basic')">Basic — R$150</button>
-          <button class="cta-ghost" onclick="copyPixCode('standard')">Standard — R$250</button>
-          <button class="cta-ghost" onclick="copyPixCode('premium')">Premium — R$700</button>
         </div>
-        <div id="pix-debug" style="margin-top:8px;display:none;color:var(--muted)"><pre id="pix-debug-pre" style="white-space:pre-wrap"></pre></div>
-      </div>
     </div>
-  </section>
+</section>
+
+<!-- TESTIMONIAL SLIDER -->
+<section class="testimonial-slider">
+    <h2 class="testimonials-title">What Our Students Say</h2>
+
+    <div class="slider-wrapper">
+        
+        <div class="slide active">
+            <img src="https://randomuser.me/api/portraits/women/48.jpg" alt="Ana">
+            <h3>Ana Ribeiro</h3>
+            <p>“The classes are natural and fun. My confidence improved so fast! Adam explains everything in a way that feels simple.”</p>
+        </div>
+
+        <div class="slide">
+            <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Lucas">
+            <h3>Lucas Martins</h3>
+            <p>“For the first time, I can speak English at work without fear. DuoSpeak changed my fluency completely!”</p>
+        </div>
+
+        <div class="slide">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Maria">
+            <h3>Maria Fernanda</h3>
+            <p>“The Premium Plan transformed my vocabulary and pronunciation. Truly worth every cent.”</p>
+        </div>
+
+    </div>
+
+    <div class="slider-dots">
+        <span class="dot active" role="button" tabindex="0" aria-label="Slide 1"></span>
+        <span class="dot" role="button" tabindex="0" aria-label="Slide 2"></span>
+        <span class="dot" role="button" tabindex="0" aria-label="Slide 3"></span>
+    </div>
+</section>
 
 </main>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container footer-grid">
-    <div>
-      <strong>DuoSpeak English</strong>
-      <div class="small">Native TEFL instructor — Conversation coaching for Brazilians</div>
-    </div>
-    <div class="socials">
-      <a href="#">Instagram</a>
-      <a href="#">YouTube</a>
-      <a href="#">LinkedIn</a>
-    </div>
-    <div class="small">© " + new Date().getFullYear() + " DuoSpeak. All rights reserved.</div>
-  </div>
-</footer>
-
-<!-- FLOATING WHATSAPP -->
-<a class="whatsapp-float" href="https://wa.me/5512997852150" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <img src="whatsapp-icon.png" alt="WhatsApp" />
-  <div style="font-weight:700">Chat</div>
-</a>
-
 <!-- SCRIPTS -->
 <script>
-// Mobile menu toggle
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger && hamburger.addEventListener('click', ()=>{
-  const open = mobileMenu.style.display === 'flex';
-  mobileMenu.style.display = open ? 'none' : 'flex';
-});
+/* Testimonial slider */
+let currentIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', function(e){
-    const href = this.getAttribute('href');
-    if(href.length>1){
-      e.preventDefault();
-      const el = document.querySelector(href);
-      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-  });
-});
-
-// FAQ toggle
-document.querySelectorAll('.faq .q').forEach(q=>{
-  q.addEventListener('click', ()=>{
-    const a = q.nextElementSibling;
-    if(a.style.display === 'block') { a.style.display = 'none'; }
-    else { a.style.display = 'block'; }
-  });
-});
-
-// Testimonial slider (basic auto-rotate)
-(function(){
-  const slides = document.querySelectorAll('.test-card');
-  if(!slides || slides.length<2) return;
-  let i=0;
-  setInterval(()=>{
-    slides.forEach((s,idx)=> s.style.opacity = (idx===i? '1':'0.35'));
-    i = (i+1) % slides.length;
-  },5000);
-})();
-
-/* ---------- PIX copy logic (keeps original approach) ---------- */
-const PIX_KEY = "7f368ab7-f85a-4865-9f8c-bf9abcf473ba";
-const PIX_CODES = { basic: PIX_KEY, standard: PIX_KEY, premium: PIX_KEY };
-(function fillDebug(){
-  const debugPre = document.getElementById('pix-debug-pre');
-  if(debugPre) debugPre.textContent = `Basic:\n${PIX_CODES.basic}\n\nStandard:\n${PIX_CODES.standard}\n\nPremium:\n${PIX_CODES.premium}`;
-})();
-
-function copyPixCode(planKey){
-  const code = PIX_CODES[planKey];
-  if(!code){ alert('Erro: código PIX não encontrado.'); return; }
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(code).then(()=>{
-      alert('PIX key copied: ' + code + '\nNow paste it in your bank app where required.');
-    }).catch(()=>{
-      const userCopy = prompt('Automatic copy failed. Please copy manually:', code);
-      if(userCopy !== null) alert('Thanks — now paste the PIX key into your bank app to pay.');
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+        });
+    dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
     });
-  } else {
-    const userCopy = prompt('Please copy the PIX key manually:', code);
-    if(userCopy !== null) alert('Thanks — now paste the PIX key into your bank app to pay.');
-  }
 }
 
-// Small accessibility improvement: focus outlines for keyboard users
-document.addEventListener('keyup',(e)=>{ if(e.key === 'Tab') document.body.classList.add('show-focus'); });
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+}
 
+let slideInterval = setInterval(nextSlide, 5000);
+
+dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+        currentIndex = i;
+        showSlide(currentIndex);
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    });
+});
+
+/* ---------- PIX: simplified keys (only your random key) ---------- */
+
+/*
+  As requested, each plan copies ONLY the PIX random key you provided:
+  7f368ab7-f85a-4865-9f8c-bf9abcf473ba
+*/
+const PIX_KEY = "7f368ab7-f85a-4865-9f8c-bf9abcf473ba";
+
+const PIX_CODES = {
+  basic:    PIX_KEY,
+  standard: PIX_KEY,
+  premium:  PIX_KEY
+};
+
+(function fillDebug() {
+  const debugPre = document.getElementById("pix-debug-pre");
+  if (debugPre) {
+    debugPre.textContent = "Basic:\n" + PIX_CODES.basic + "\n\nStandard:\n" + PIX_CODES.standard + "\n\nPremium:\n" + PIX_CODES.premium;
+  }
+})();
+
+function copyPixCode(planKey) {
+    const code = PIX_CODES[planKey];
+    if (!code) {
+        alert("Erro: código PIX não encontrado.");
+        return;
+    }
+    // Attempt to copy to clipboard
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(() => {
+        alert("PIX key copied: " + code + "\nNow paste it in your bank app where required.");
+      }).catch(() => {
+        const userCopy = prompt("Automatic copy failed. Please copy manually:", code);
+        if (userCopy !== null) alert("Thanks — now paste the PIX key into your bank app to pay.");
+      });
+    } else {
+      const userCopy = prompt("Please copy the PIX key manually:", code);
+      if (userCopy !== null) alert("Thanks — now paste the PIX key into your bank app to pay.");
+    }
+}
+
+/* For quick console debug during tests */
+console.log("PIX keys loaded:", PIX_CODES);
 </script>
 
 </body>
