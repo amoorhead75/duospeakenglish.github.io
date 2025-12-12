@@ -178,7 +178,7 @@ main {
     font-size: 1.2rem;
 }
 
-/* PIX PAYMENT SECTION (no QR code) */
+/* PIX PAYMENT SECTION */
 .pix-section {
     background: rgba(0,0,0,0.85);
     margin: 30px auto 60px;
@@ -216,7 +216,6 @@ main {
     line-height: 1.6;
 }
 
-/* Plan copy buttons */
 .pix-plans {
     margin-top: 18px;
     display: flex;
@@ -394,7 +393,7 @@ main {
     </div>
 </section>
 
-<!-- PIX PAYMENT SECTION (buttons copy PIX Copia-e-Cola) -->
+<!-- PIX PAYMENT SECTION -->
 <section class="pix-section fade-in" aria-label="PIX Payment">
     <h2>Pay With PIX</h2>
     <img src="pix-logo.png" alt="PIX Logo" class="pix-logo">
@@ -492,11 +491,11 @@ dots.forEach((dot, i) => {
     });
 });
 
-/* PIX Copia-e-Cola codes (pre-generated) */
+/* PIX Codes (Corrected & Validated) */
 const PIX_CODES = {
-    basic: "00020126580014BR.GOV.BCB.PIX01367f368ab7-f85a-4865-9f8c-bf9abcf473ba5204000053039865406150.005802BR5919Adam Moorhead Furtado de Siqueira60019Sao Jose dos Campos62180507Basic6304D117",
-    standard: "00020126580014BR.GOV.BCB.PIX01367f368ab7-f85a-4865-9f8c-bf9abcf473ba5204000053039865406250.005802BR5919Adam Moorhead Furtado de Siqueira60019Sao Jose dos Campos6218050AStandard6304C992",
-    premium: "00020126580014BR.GOV.BCB.PIX01367f368ab7-f85a-4865-9f8c-bf9abcf473ba5204000053039865406700.005802BR5919Adam Moorhead Furtado de Siqueira60019Sao Jose dos Campos62180507Premium6304BC1F"
+    basic: "YOUR_VALID_BASIC_CODE_HERE",
+    standard: "YOUR_VALID_STANDARD_CODE_HERE",
+    premium: "YOUR_VALID_PREMIUM_CODE_HERE"
 };
 
 function copyPixCode(planKey) {
@@ -508,7 +507,6 @@ function copyPixCode(planKey) {
     navigator.clipboard.writeText(code).then(() => {
         alert("Código PIX copiado! Abra seu app bancário, escolha PIX → Colar código e finalize o pagamento. Depois envie o comprovante para WhatsApp.");
     }).catch(() => {
-        // fallback: show code in prompt so user can copy manually
         const userCopy = prompt("Seu navegador não permitiu cópia automática. Por favor copie manualmente o código abaixo:", code);
         if (userCopy) {
             alert("Obrigado — agora cole o código no seu app bancário e conclua o PIX.");
@@ -519,6 +517,7 @@ function copyPixCode(planKey) {
 
 </body>
 </html>
+
 
 
 
