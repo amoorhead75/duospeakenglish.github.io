@@ -274,7 +274,7 @@ main { padding: 25px; }
   box-shadow: 0 0 10px gold;
 }
 
-/* MOBILE BREAKPOINTS */
+/* MOBILE */
 @media (max-width: 820px) {
   .teacher-section { flex-direction: column; text-align: center; }
   .pix-instructions { text-align: center; }
@@ -309,13 +309,12 @@ main { padding: 25px; }
 <section class="about-classes fade-in">
   <h2>About Our Classes</h2>
   <p>
-    At DuoSpeak English, our conversation classes are designed to change the way you feel when speaking English.
+    At DuoSpeak English, our conversation classes are designed to change how you feel when speaking English.
     Instead of freezing, overthinking, or feeling unsure, you’ll learn to express your ideas clearly,
     naturally, and confidently.
     <br><br>
     These classes don’t focus on certificates — they focus on what truly matters:
-    <strong>real conversational fluency.</strong> You’ll build the confidence to speak in any situation
-    and open new opportunities in both your personal and professional life.
+    <strong>real conversational fluency.</strong>
   </p>
 </section>
 
@@ -323,10 +322,10 @@ main { padding: 25px; }
   <img src="teacher.png" alt="Instructor Adam Siqueira" />
   <div>
 
-    <!-- UPDATED HEADER WITH BADGE -->
+    <!-- TITLE WITH BADGE -->
     <h2>
       Meet the Instructor
-      <img src="badge-tefl.png" alt="TEFL Certified"
+      <img src="badge-tefl.png" alt="TEFL Certified" 
            style="width: 32px; margin-left: 8px; vertical-align: middle;">
     </h2>
 
@@ -336,36 +335,107 @@ main { padding: 25px; }
       natural English through high-quality conversation training.
     </p>
 
-    <!-- TEFL CERTIFICATE PREVIEW (ADDED) -->
+    <!-- SINGLE TEFL CERTIFICATE PREVIEW -->
     <div style="margin-top: 20px; text-align: center;">
       <h3 style="color: gold; margin-bottom: 12px;">TEFL Certification</h3>
 
-      <img src="tefl_cert_page1.png"
-           alt="TEFL Certificate"
+      <img src="tefl_cert_page1.png" 
+           alt="TEFL Certificate" 
            style="width: 100%; max-width: 420px; border: 2px solid gold; border-radius: 10px; box-shadow: 0 0 15px rgba(255,215,0,0.4); margin-bottom: 12px;">
-
-      <br>
-
-      <a href="TEFL Certification.pdf"
-         target="_blank"
-         style="
-           display: inline-block;
-           background: gold;
-           color: black;
-           padding: 10px 16px;
-           border-radius: 8px;
-           font-weight: bold;
-           text-decoration: none;
-           box-shadow: 0 0 10px rgba(255,215,0,0.4);
-         ">
-        📄 View Full Certificate (PDF)
-      </a>
     </div>
 
   </div>
 </section>
 
-<!-- PRICING, PIX, TESTIMONIALS, JS all stay exactly the same… -->
+<section class="pricing-section fade-in">
+  <h2>Our Plans</h2>
+
+  <div class="plan-box">
+    <h3>🟢 Basic Plan</h3>
+    <p>4 classes/month • 1/week • R$150</p>
+  </div>
+
+  <div class="plan-box">
+    <h3>🟣 Standard Plan</h3>
+    <p>8 classes/month • 2/week • R$250</p>
+  </div>
+
+  <div class="plan-box">
+    <h3>💎 Premium Plan</h3>
+    <p>12–20 classes/month • 3–5/week • Intensive Training • R$700</p>
+  </div>
+</section>
+
+<section class="pix-section fade-in" aria-label="PIX Payment">
+  <h2>Pay With PIX</h2>
+  <img src="pix-logo.png" alt="PIX Logo" class="pix-logo" />
+
+  <p style="margin-bottom:18px;">
+    Choose your plan and tap the button to copy the PIX key.
+    Then complete your payment and send the receipt via WhatsApp.
+  </p>
+
+  <div class="pix-grid">
+    <div class="pix-instructions">
+      <p><strong>How to pay:</strong></p>
+      <ol>
+        <li>Tap the button for your plan — it copies the PIX key.</li>
+        <li>Open your bank app and paste the key.</li>
+        <li>Pay and send the receipt to WhatsApp:
+          <a href="https://wa.me/15096714489" style="color:gold;">+1 (509) 671-4489</a></li>
+      </ol>
+
+      <div class="pix-plans">
+        <button class="pix-plan-btn" onclick="copyPixCode('basic')">🟢 Basic — R$150</button>
+        <button class="pix-plan-btn" onclick="copyPixCode('standard')">🟣 Standard — R$250</button>
+        <button class="pix-plan-btn" onclick="copyPixCode('premium')">💎 Premium — R$700</button>
+      </div>
+
+      <p style="margin-top:12px;">
+        Receiver: <strong>Adam Moorhead Furtado de Siqueira</strong> (Nubank)
+      </p>
+
+      <button style="margin-top:10px;background:transparent;border:1px solid gold;color:gold;padding:6px 10px;border-radius:8px;cursor:pointer;" onclick="togglePixDebug()">
+        Toggle PIX Key Debug
+      </button>
+
+      <div id="pix-debug">
+        <strong>Copied PIX key:</strong>
+        <pre id="pix-debug-pre"></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-slider">
+  <h2 class="testimonials-title">What Our Students Say</h2>
+
+  <div class="slider-wrapper">
+    <div class="slide active">
+      <img src="https://randomuser.me/api/portraits/women/48.jpg" alt="Ana" />
+      <h3>Ana Ribeiro</h3>
+      <p>“The classes are natural and fun. My confidence improved so fast!”</p>
+    </div>
+
+    <div class="slide">
+      <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Lucas" />
+      <h3>Lucas Martins</h3>
+      <p>“For the first time, I can speak English at work without fear.”</p>
+    </div>
+
+    <div class="slide">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Maria" />
+      <h3>Maria Fernanda</h3>
+      <p>“The Premium Plan transformed my vocabulary and pronunciation.”</p>
+    </div>
+  </div>
+
+  <div class="slider-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
 
 </main>
 
@@ -410,6 +480,7 @@ function togglePixDebug() {
 
 </body>
 </html>
+
 
 
 
